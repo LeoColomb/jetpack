@@ -24,7 +24,7 @@ import { IS_GRADIENT_AVAILABLE } from './constants';
 import usePassthroughAttributes from './use-passthrough-attributes';
 import './editor.scss';
 
-function ButtonEdit( props ) {
+export function ButtonEdit( props ) {
 	const { attributes, backgroundColor, className, clientId, setAttributes, textColor } = props;
 	const { borderRadius, element, placeholder, text } = attributes;
 
