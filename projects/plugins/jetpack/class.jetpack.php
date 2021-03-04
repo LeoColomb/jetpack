@@ -727,6 +727,8 @@ class Jetpack {
 
 		add_filter( 'jetpack_just_in_time_msg_cache', '__return_true', 9 );
 
+		add_filter( 'jetpack_pre_connection_jitms', array( $this, 'add_pre_connection_jitms' ) );
+
 		/*
 		 * If enabled, point edit post, page, and comment links to Calypso instead of WP-Admin.
 		 * We should make sure to only do this for front end links.
@@ -2474,6 +2476,13 @@ class Jetpack {
 		 * @param string $max_version Maximum version number required to use modules.
 		 */
 		return apply_filters( 'jetpack_get_default_modules', $return, $min_version, $max_version );
+	}
+
+	public function add_pre_connection_jitms( $pre_connection_messages ) {
+		require_once JETPACK__PLUGIN_DIR . 'class.jetpack-pre-connection-jitms.php';
+
+		$jetpack_messages = ( new Jetpack_Pre_Connection_JITMs() )->get_raw_messages();
+		return array_merge( $pre_connection_messages, $jetpack_messages );
 	}
 
 	/**
