@@ -32,7 +32,7 @@ import {
 	DEFAULT_SPACING_VALUE,
 	DEFAULT_FONTSIZE_VALUE,
 } from './constants';
-import Controls from './controls';
+import SubscriptionControls from './controls';
 
 const { getComputedStyle } = window;
 const isGradientAvailable = !! useGradient;
@@ -204,7 +204,7 @@ export function SubscriptionEdit( props ) {
 	return (
 		<>
 			<InspectorControls>
-				<Controls
+				<SubscriptionControls
 					buttonBackgroundColor={ buttonBackgroundColor }
 					borderColor={ borderColor }
 					buttonGradient={ buttonGradient }
